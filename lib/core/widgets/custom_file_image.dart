@@ -21,6 +21,10 @@ class CustomFileImage extends StatelessWidget {
             backgroundImage: FileImage(
               File(image!.path),
             ))
-        : CustomImages(imgPath: AppAssets.imagePicker);
+        : CustomImages(
+            imgPath: AppAssets.imagePicker,
+            width: 150.w,
+            height: 150.h,
+          );
   }
 }

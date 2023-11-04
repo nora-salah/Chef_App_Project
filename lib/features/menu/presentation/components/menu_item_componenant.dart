@@ -1,7 +1,6 @@
 import 'package:chef_app_project/core/local/app_loacl.dart';
 import 'package:chef_app_project/core/utils/app_strings.dart';
 import 'package:chef_app_project/core/widgets/custom_alert_dialog.dart';
-import 'package:chef_app_project/core/widgets/custom_loading_indecator.dart';
 import 'package:chef_app_project/core/widgets/custom_network_image.dart';
 import 'package:chef_app_project/features/menu/data/models/menu_model.dart';
 import 'package:chef_app_project/features/menu/presentation/cubit/menu_cubit.dart';
@@ -39,15 +38,15 @@ class MenuItemComponent extends StatelessWidget {
             Text(model.price.toString()),
           ],
         ),
-        Spacer(),
+        const Spacer(),
         BlocConsumer<MenuCubit, MenuState>(
-          listener: (context, state){
-            if(state is DeleteDishSucessState){
+          listener: (context, state) {
+            if (state is DeleteDishSucessState) {
               BlocProvider.of<MenuCubit>(context).getAllMeals();
             }
           },
           builder: (context, state) {
-            return  IconButton(
+            return IconButton(
                 onPressed: () {
                   showDialog(
                       context: context,
@@ -61,7 +60,7 @@ class MenuItemComponent extends StatelessWidget {
                             });
                       });
                 },
-                icon: Icon(Icons.cancel));
+                icon: const Icon(Icons.cancel));
           },
         ),
       ],

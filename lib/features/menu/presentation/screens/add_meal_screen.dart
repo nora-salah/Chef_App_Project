@@ -32,11 +32,12 @@ class AddMealScreen extends StatelessWidget {
               listener: (context, state) {
                 if (state is AddDishSucessState) {
                   showTwist(
-                      message: AppStrings.mealAddedSucessfully.tr(context),
-                      state: ToastStates.success);
+                    message: AppStrings.mealAddedSucessfully.tr(context),
+                    state: ToastStates.success,
+                  );
+                  Navigator.pop(context);
+                  BlocProvider.of<MenuCubit>(context).getAllMeals();
                 }
-                Navigator.pop(context);
-                BlocProvider.of<MenuCubit>(context).getAllMeals();
               },
               builder: (context, state) {
                 final menuCubit = BlocProvider.of<MenuCubit>(context);
@@ -48,7 +49,6 @@ class AddMealScreen extends StatelessWidget {
                         children: [
                           CustomFileImage(
                             image: menuCubit.image,
-
                           ),
                           Positioned.directional(
                               textDirection: Directionality.of(context),
@@ -63,20 +63,19 @@ class AddMealScreen extends StatelessWidget {
                                             cameraOnTap: () {
                                               Navigator.pop(context);
                                               pickImage(ImageSource.camera)
-                                                  .then((value) =>
-                                                      menuCubit.takeImage(value));
+                                                  .then((value) => menuCubit
+                                                      .takeImage(value));
                                             },
                                             galleryOnTap: () {
                                               Navigator.pop(context);
-
                                               pickImage(ImageSource.gallery)
-                                                  .then((value) =>
-                                                  menuCubit.takeImage(value));
+                                                  .then((value) => menuCubit
+                                                      .takeImage(value));
                                             },
                                           );
                                         });
                                   },
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.add,
                                     size: 35,
                                   ))),
@@ -107,7 +106,7 @@ class AddMealScreen extends StatelessWidget {
                             return AppStrings.pleaseEnterValidMealPrice
                                 .tr(context);
                           }
-                          if (data!.isEmpty) {
+                          if (data.isEmpty) {
                             return AppStrings.pleaseEnterValidMealPrice
                                 .tr(context);
                           }
@@ -140,7 +139,7 @@ class AddMealScreen extends StatelessWidget {
                             value: menuCubit.selectedItem,
                             items: menuCubit.categoryList
                                 .map((e) =>
-                                    DropdownMenuItem(child: Text(e), value: e))
+                                    DropdownMenuItem(value: e, child: Text(e)))
                                 .toList(),
                             onChanged: (date) {
                               menuCubit.changeItem(date);
@@ -163,7 +162,7 @@ class AddMealScreen extends StatelessWidget {
                               Text(AppStrings.mealQuantity.tr(context)),
                             ],
                           ),
-                          Spacer(),
+                          const Spacer(),
                           Row(
                             children: [
                               Radio(

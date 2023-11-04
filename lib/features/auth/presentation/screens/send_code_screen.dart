@@ -47,7 +47,7 @@ class SendCodeScreen extends StatelessWidget {
                   children: [
                     Padding(
                       padding: EdgeInsets.only(top: 40.h, bottom: 24.h),
-                      child: CustomImages(imgPath: AppAssets.lock),
+                      child: const CustomImages(imgPath: AppAssets.lock),
                     ),
                     Text(AppStrings.sendResetLinkInfo.tr(context)),
                     SizedBox(

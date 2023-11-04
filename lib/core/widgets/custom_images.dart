@@ -6,7 +6,7 @@ class CustomImages extends StatelessWidget {
     required this.imgPath,
     this.height,
     this.width,
-    this.fit ,
+    this.fit,
   });
   final String imgPath;
   final double? height;
@@ -19,7 +19,7 @@ class CustomImages extends StatelessWidget {
       imgPath,
       fit: fit,
       height: height,
-      width: double.infinity,
+      width: width,
     );
   }
 }

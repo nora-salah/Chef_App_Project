@@ -1,6 +1,6 @@
-import 'package:bloc/bloc.dart';
 import 'package:chef_app_project/features/menu/data/repository/menu_reposatry.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../data/models/menu_model.dart';
@@ -61,14 +61,15 @@ class MenuCubit extends Cubit<MenuState> {
     );
     res.fold((l) => emit(DeleteDishErrorState()),
         (r) => emit(DeleteDishSucessState()));
-  }
+  } 
+  
 List <MealModel> meals=[];
   void getAllMeals() async {
     emit(GetAllChefMealErrorState());
     final res = await menuRepository.getMeals();
     res.fold((l) => emit(GetAllChefMealErrorState()),
         (r) {
-      meals=r.meals;
+           meals=r.meals;
           emit(GetAllChefMealSucessState());
         });
   }

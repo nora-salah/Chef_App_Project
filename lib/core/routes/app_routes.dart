@@ -13,7 +13,7 @@ import '../../features/profile/presentation/screens/profile_home_screen.dart';
 import '../../features/profile/presentation/screens/setting_screen.dart';
 import '../../features/profile/presentation/screens/update_profile_screen.dart';
 
-class Routes{
+class Routes {
   static const String initialRoute = '/';
   static const String changeLang = '/changeLang';
 
@@ -29,42 +29,41 @@ class Routes{
   static const String home = '/home';
 }
 
+class AppRoutes {
+  static Route? generateRoute(RouteSettings routeSettings) {
+    switch (routeSettings.name) {
+      case Routes.initialRoute:
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
 
-class AppRoutes{
-  static Route? generateRoute(RouteSettings routeSettings){
-      switch(routeSettings.name){
-        case Routes.initialRoute:
-          return MaterialPageRoute(builder: (_)=>SplashScreen());
-
-        case Routes.changeLang:
-          return MaterialPageRoute(builder: (_) => const ChangeLangScreen());
-        case Routes.login:
-          return MaterialPageRoute(builder: (_) => const LogInScreen());
-        case Routes.sendCode:
-          return MaterialPageRoute(builder: (_) => const SendCodeScreen());
-        case Routes.resetPassword:
-          return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
-        case Routes.menuHome:
-          return MaterialPageRoute(builder: (_) => const MenuHomeScreen());
-        case Routes.addMeal:
-          return MaterialPageRoute(builder: (_) => const AddMealScreen());
-        case Routes.profileHome:
-          return MaterialPageRoute(builder: (_) => const ProfileHomeScreen());
-        case Routes.updateProfile:
-          return MaterialPageRoute(builder: (_) => const UpdateProfileScreen());
-        case Routes.setting:
-          return MaterialPageRoute(builder: (_) =>  SettingScreen());
-        case Routes.changePassword:
-          return MaterialPageRoute(builder: (_) => const ChangePasswordScreen());
-        case Routes.home:
-          return MaterialPageRoute(builder: (_) => HomeScreen());
-        default:
-          return MaterialPageRoute(
-              builder: (_) => const Scaffold(
-                body: Center(
-                  child: Text('No Found Route'),
-                ),
-              ));
-      }
+      case Routes.changeLang:
+        return MaterialPageRoute(builder: (_) => const ChangeLangScreen());
+      case Routes.login:
+        return MaterialPageRoute(builder: (_) => const LogInScreen());
+      case Routes.sendCode:
+        return MaterialPageRoute(builder: (_) => const SendCodeScreen());
+      case Routes.resetPassword:
+        return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
+      case Routes.menuHome:
+        return MaterialPageRoute(builder: (_) => const MenuHomeScreen());
+      case Routes.addMeal:
+        return MaterialPageRoute(builder: (_) => const AddMealScreen());
+      case Routes.profileHome:
+        return MaterialPageRoute(builder: (_) => const ProfileHomeScreen());
+      case Routes.updateProfile:
+        return MaterialPageRoute(builder: (_) => const UpdateProfileScreen());
+      case Routes.setting:
+        return MaterialPageRoute(builder: (_) => const SettingScreen());
+      case Routes.changePassword:
+        return MaterialPageRoute(builder: (_) => const ChangePasswordScreen());
+      case Routes.home:
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
+      default:
+        return MaterialPageRoute(
+            builder: (_) => const Scaffold(
+                  body: Center(
+                    child: Text('No Found Route'),
+                  ),
+                ));
+    }
   }
 }

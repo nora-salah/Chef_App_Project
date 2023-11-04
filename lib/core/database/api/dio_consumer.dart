@@ -1,5 +1,3 @@
-
-
 import 'package:dio/dio.dart';
 
 import '../../error/error_model.dart';
@@ -54,12 +52,16 @@ class DioConsumer extends ApiConsumer {
   }
 
   @override
-  Future patch(String path,
-      {dynamic data, Map<String, dynamic>? queryParameters,bool isFormData=false,}) async {
+  Future patch(
+    String path, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    bool isFormData = false,
+  }) async {
     try {
       var res = await dio.patch(
         path,
-        data:isFormData?FormData.fromMap(data): data,
+        data: isFormData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,
       );
       return res.data;
@@ -73,12 +75,12 @@ class DioConsumer extends ApiConsumer {
     String path, {
     dynamic data,
     Map<String, dynamic>? queryParameters,
-    bool isFormData=false,
+    bool isFormData = false,
   }) async {
     try {
       var res = await dio.post(
         path,
-        data:isFormData?FormData.fromMap(data): data,
+        data: isFormData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,
       );
       return res.data;
@@ -124,7 +126,8 @@ class DioConsumer extends ApiConsumer {
 
           case 504: // Bad request
 
-            throw BadResponseException(ErrorModel.fromJson(e.response!.data));
+            throw BadResponseException(
+                ErrorModel(status: 504, errorMessage: e.response!.data));
         }
 
       case DioExceptionType.cancel:

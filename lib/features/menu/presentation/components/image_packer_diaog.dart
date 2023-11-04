@@ -6,7 +6,9 @@ import '../../../../core/utils/app_strings.dart';
 
 class ImagePackerDialog extends StatelessWidget {
   const ImagePackerDialog({
-    super.key, required this.galleryOnTap, required this.cameraOnTap,
+    super.key,
+    required this.galleryOnTap,
+    required this.cameraOnTap,
   });
   final VoidCallback galleryOnTap;
 
@@ -23,35 +25,28 @@ class ImagePackerDialog extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.camera_alt,
               color: AppColors.primary,
             ),
-            onTap:cameraOnTap,
+            onTap: cameraOnTap,
             title: Text(
               AppStrings.camera.tr(context),
-              style: Theme.of(context)
-                  .textTheme
-                  .displayLarge!
-                  .copyWith(
-                color: AppColors.primary,
-              ),
-
+              style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                    color: AppColors.primary,
+                  ),
             ),
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.photo,
               color: AppColors.primary,
             ),
             title: Text(
               AppStrings.gallery.tr(context),
-              style: Theme.of(context)
-                  .textTheme
-                  .displayLarge!
-                  .copyWith(
-                color: AppColors.primary,
-              ),
+              style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                    color: AppColors.primary,
+                  ),
             ),
             onTap: galleryOnTap,
           ),

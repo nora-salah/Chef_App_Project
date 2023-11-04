@@ -30,11 +30,11 @@ class MenuHomeScreen extends StatelessWidget {
               final menuCubit = BlocProvider.of<MenuCubit>(context);
 
               return Expanded(
-                child:state is GetAllChefMealLoadingState? CustomLoadingIndicator(): menuCubit.meals.isEmpty
-                    ? Text("no meals")
+                child:state is GetAllChefMealLoadingState? const CustomLoadingIndicator(): menuCubit.meals.isEmpty
+                    ? const Text("no meals")
                     : ListView.builder(
                         itemBuilder: (context, index) =>  Padding(
-                          padding: EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: MenuItemComponent(
                             model: menuCubit.meals[index],
                           ),

@@ -30,7 +30,7 @@ class Form extends StatelessWidget {
       validator: validate,
       obscureText: isVis,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(horizontal: 10),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 10),
           labelText: label,
           hintText: hint,
           suffixIcon:

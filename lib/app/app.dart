@@ -21,14 +21,14 @@ class MyApp extends StatelessWidget {
           BlocBuilder<GlobalCubit, GlobalState>(
             builder: (context, state) {
               return MaterialApp(
-                localizationsDelegates: [
+                localizationsDelegates: const [
                   GlobalMaterialLocalizations.delegate,
                   GlobalCupertinoLocalizations.delegate,
                   GlobalWidgetsLocalizations.delegate,
                   AppLocalizations.delegate,
 
                 ],
-                supportedLocales: [
+                supportedLocales: const [
                   Locale('ar', 'EG'),
                   Locale('en', 'US'),
 

@@ -47,7 +47,7 @@ const ResetPasswordScreen({Key? key}) : super(key: key);
                   children: [
                     Padding(
                       padding: EdgeInsets.only(top: 40.h, bottom: 24.h),
-                      child: CustomImages(imgPath: AppAssets.lock),
+                      child: const CustomImages(imgPath: AppAssets.lock),
                     ),
                     Text(AppStrings.createYourNewPassword.tr(context)),
                     SizedBox(
