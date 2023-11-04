@@ -36,9 +36,9 @@ class SendCodeScreen extends StatelessWidget {
                 showTwist(state:ToastStates.success,message: state.massage );
                 navigateReplacement(context: context, route: Routes.resetPassword);
               }
-              /*if(state is SendCodeErrorState){
+              if(state is SendCodeErrorState){
                 showTwist(state:ToastStates.error,message:  AppStrings.loginFailed.tr(context) );
-              }*/
+              }
             },
             builder: (context, state) {
               return Form(

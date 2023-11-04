@@ -73,6 +73,7 @@
     "brandName": "Brand Name",
     "minimumCharge": "Minimum Charge",
     "language": "English",
-    "updateProfile": "Update Profile"
-    
+    "updateProfile": "Update Profile",
+    "deleteMeal": "Delete Meal"
+
 }

@@ -1,4 +1,5 @@
 class AppStrings {
+
   static const String chefApp = 'chefApp';
   static const String welcomeToChefApp = 'welcomeToChefApp';
   static const String pleaseChooseYourLanguage = 'pleaseChooseYourLanguage';
@@ -78,6 +79,7 @@ class AppStrings {
   static const String cancel = 'cancel';
   static const String brandName = 'brandName';
   static const String minimumCharge = 'minimumCharge';
+  static const String deleteMeal = 'Delete Meal';
 
   static const String location = 'location';
   static const String language = 'language';

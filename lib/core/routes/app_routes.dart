@@ -1,4 +1,5 @@
 import 'package:chef_app_project/features/auth/presentation/screens/splash_screen.dart';
+import 'package:chef_app_project/features/home/screen/home.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/auth/presentation/screens/change_lang_screen.dart';
@@ -56,7 +57,7 @@ class AppRoutes{
         case Routes.changePassword:
           return MaterialPageRoute(builder: (_) => const ChangePasswordScreen());
         case Routes.home:
-          return MaterialPageRoute(builder: (_) => Scaffold());
+          return MaterialPageRoute(builder: (_) => HomeScreen());
         default:
           return MaterialPageRoute(
               builder: (_) => const Scaffold(

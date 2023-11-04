@@ -71,5 +71,6 @@
     "brandName": "اسم البراند",
     "minimumCharge": "الحد الأدنى للطلب",
     "language": "العربية",
-    "updateProfile": "تعديل الملف الشخصي"
+    "updateProfile": "تعديل الملف الشخصي",
+    "deleteMeal": "حذف الوجبه"
 }

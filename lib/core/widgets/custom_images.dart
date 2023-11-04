@@ -23,3 +23,10 @@ class CustomImages extends StatelessWidget {
     );
   }
 }
+/* CircleAvatar(
+                            backgroundImage: AssetImage(
+                              AppAssets.profile,
+                            ),
+                            maxRadius: 100,
+                            minRadius: 50,
+                          ),*/

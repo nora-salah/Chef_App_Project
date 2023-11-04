@@ -1,3 +1,5 @@
+import 'package:chef_app_project/core/database/api/end_points.dart';
+import 'package:chef_app_project/core/database/cache/cache_helper.dart';
 import 'package:chef_app_project/core/local/app_loacl.dart';
 import 'package:chef_app_project/core/utils/app_colors.dart';
 import 'package:chef_app_project/core/utils/commons.dart';
@@ -5,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/routes/app_routes.dart';
+import '../../../../core/services/service_locator.dart';
 import '../../../../core/utils/app_assets.dart';
 import '../../../../core/utils/app_strings.dart';
 import '../../../../core/widgets/custom_images.dart';
@@ -24,8 +27,12 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void navigateAfterThreeSeconds() {
-    Future.delayed(Duration(seconds: 3)).then((value) {
-      navigate(context: context, route: Routes.changeLang);
+    Future.delayed(Duration(seconds: 3)).then((value) async {
+      await sl<CacheHelper>().getData(
+        key: Apikeys.token,
+      )==null?
+      navigate(context: context, route: Routes.changeLang):
+      navigate(context: context, route: Routes.home);
     });
   }
 

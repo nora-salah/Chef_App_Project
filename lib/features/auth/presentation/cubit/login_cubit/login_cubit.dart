@@ -4,6 +4,7 @@ import 'package:chef_app_project/core/database/cache/cache_helper.dart';
 import 'package:chef_app_project/features/auth/data/models/login_model.dart';
 import 'package:chef_app_project/features/auth/data/repository/auth_reposatory.dart';
 import 'package:flutter/material.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
 
 import '../../../../../core/services/service_locator.dart';
 import 'login_state.dart';
@@ -36,12 +37,13 @@ class LoginCubit extends Cubit<LoginState> {
     );
     result.fold((l) {
       emit(LoginErrorState(l));
-
-    }, (r) async{
-    await  sl<CacheHelper>().saveData(key: Apikeys.token, value: r.token);
-      loginModel=r;
+    }, (r) async {
+      await sl<CacheHelper>().saveData(key: Apikeys.token, value: r.token);
+      loginModel = r;
+      Map<String, dynamic> decodedToken = JwtDecoder.decode(r.token);
+      await sl<CacheHelper>()
+          .saveData(key: Apikeys.id, value: decodedToken[Apikeys.id]);
       emit(LoginSucessState());
-
     });
   }
 }
