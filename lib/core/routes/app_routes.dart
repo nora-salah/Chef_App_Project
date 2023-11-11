@@ -6,6 +6,7 @@ import '../../features/auth/presentation/screens/change_lang_screen.dart';
 import '../../features/auth/presentation/screens/login_screen.dart';
 import '../../features/auth/presentation/screens/reset_password_screen.dart';
 import '../../features/auth/presentation/screens/send_code_screen.dart';
+import '../../features/home/screen/profile_screen.dart';
 import '../../features/menu/presentation/screens/add_meal_screen.dart';
 import '../../features/menu/presentation/screens/menu_home_screen.dart';
 import '../../features/profile/presentation/screens/change_password_screen.dart';
@@ -22,7 +23,7 @@ class Routes {
   static const String resetPassword = '/resetPassword';
   static const String menuHome = '/menuHome';
   static const String addMeal = '/addMeal';
-  static const String profileHome = '/profileHome';
+  static const String profile = '/profile';
   static const String updateProfile = '/updateProfile';
   static const String setting = '/setting';
   static const String changePassword = '/changePassword';
@@ -47,12 +48,12 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const MenuHomeScreen());
       case Routes.addMeal:
         return MaterialPageRoute(builder: (_) => const AddMealScreen());
-      case Routes.profileHome:
-        return MaterialPageRoute(builder: (_) => const ProfileHomeScreen());
+      case Routes.profile:
+        return MaterialPageRoute(builder: (_) => const ProfileScreen());
       case Routes.updateProfile:
         return MaterialPageRoute(builder: (_) => const UpdateProfileScreen());
       case Routes.setting:
-        return MaterialPageRoute(builder: (_) => const SettingScreen());
+        return MaterialPageRoute(builder: (_) =>  SettingScreen());
       case Routes.changePassword:
         return MaterialPageRoute(builder: (_) => const ChangePasswordScreen());
       case Routes.home:

@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
+import '../../../core/routes/app_routes.dart';
 import '../../../core/utils/app_strings.dart';
+import '../../../core/utils/commons.dart';
 import '../../../core/widgets/custom_google_nav_bar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -28,6 +30,9 @@ class HomeScreen extends StatelessWidget {
               GButton(
                 icon: Icons.person,
                 text: AppStrings.profile.tr(context),
+                onPressed: (){
+                  navigate(context: context, route: Routes.profile);
+                },
               ),
             ],
           ),

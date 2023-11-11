@@ -11,6 +11,8 @@ import '../../../../core/services/service_locator.dart';
 import '../../../../core/utils/app_assets.dart';
 import '../../../../core/utils/app_strings.dart';
 import '../../../../core/widgets/custom_images.dart';
+import '../../../profile/presentation/screens/setting_screen.dart';
+import '../../../profile/presentation/screens/setting_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -32,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 key: Apikeys.token,
               ) ==
               null
-          ? navigate(context: context, route: Routes.changeLang)
+          ? navigate(context: context, route: Routes.setting)
           : navigate(context: context, route: Routes.home);
     });
   }

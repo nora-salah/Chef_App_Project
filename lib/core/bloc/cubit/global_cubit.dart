@@ -7,7 +7,7 @@ import 'global_state.dart';
 class GlobalCubit extends Cubit<GlobalState> {
   GlobalCubit() : super(GlobalInitial());
 
-  // bool isArabic=false;
+   bool isSwitch=false;
   String langCode = 'ar';
 
   void changeLang(String codeLang) async {
@@ -15,31 +15,29 @@ class GlobalCubit extends Cubit<GlobalState> {
     // isArabic=!isArabic;
     langCode = codeLang;
     await sl<CacheHelper>().cacheLanguage(codeLang);
-    emit(ChangeLangSuccess());
+    emit(ChangeLangSucess());
+  }
+  void changeLang2(String codeLang) async {
+    emit(ChangeLangLoading());
+     isSwitch=!isSwitch;
+    langCode = codeLang;
+    await sl<CacheHelper>().cacheLanguage(codeLang);
+    emit(ChangeLangSucess());
   }
 
   void getCachedLang() {
     emit(ChangeLangLoading());
     final cachedLang = sl<CacheHelper>().getCachedLanguage();
     langCode = cachedLang;
-    emit(ChangeLangSuccess());
+    emit(ChangeLangSucess());
   }
 
-/*void getCachedLang() {
-    emit(ChangeLangLoading());
-
-    final  cachedLang = sl<CacheHelper>().getCachedLanguage();
-    langCode=cachedLang;
-    emit(ChangeLangSuccess());
-  }
-  bool switchOn= false;
-  void switchLang(value){
-    
-    // isArabic=!isArabic;
+  bool switchOn = false;
+  void switchLang(value) {
     switchOn = !switchOn;
-     sl<CacheHelper>().saveData(key: 'lang', value: switchOn?'ar':'en');
-     langCode=sl<CacheHelper>().getDataString(key: 'lang')!;
-    emit(ChangeLangSuccess());
+    sl<CacheHelper>().saveData(key: 'lang', value: switchOn ? 'ar' : 'en');
+    langCode = sl<CacheHelper>().getDataString(key: 'lang')!;
+    emit(ChangeLangSucess());
+  }
 
-  }*/
 }
